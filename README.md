@@ -1,16 +1,12 @@
-# Dotfiles
-These are the main files that I tinker with when I have to install a fresh OS.
-the repo is just a collection of config files and notes that I've made over the years.
-
-## Fresh Linux install
+## Fresh Linux install 
 
 This is just the bootstrap installation and default configuration for most machines. The tutorial was written on the tailend of 2024 for Ubuntu Desktop - Thinkpad.
 
-## Install common packages
+## Install common packages 
 I want to tryout fish as a shell as it's got a good vim mode unlike zsh
 ```
 sudo apt-get update
-sudo apt-get install htop xclip git vim i3 tmux polybar rofi kitty zsh fish curl ripgrep arandr make cmake ninja-build gettext unzip build-essential nodejs
+sudo apt-get install htop xclip git vim i3 tmux polybar rofi kitty zsh fish curl ripgrep arandr make cmake ninja-build gettext unzip build-essential nodejs taskwarrior
 ```
 ## Install chrome
 Don't forget to install vimium
@@ -34,7 +30,7 @@ Don't forget to add it your GitHub account
 ssh-keygen -t ed25519 -C "l-goddard@protonmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
-cat id_ed25519.pub | xclip -sel clip
+cat id_ed25519.pub | xclip -sel clip 
 ```
 
 ## Configure Git
@@ -44,7 +40,7 @@ git config --global user.email "l-goddard@protonmail.com"
 ```
 ## Download Dotfiles
 https://github.com/luke-goddard/dotfiles
-```bash
+```bash 
 cd $HOME/Documents
 mkdir programing
 cd programing
@@ -55,8 +51,8 @@ cd dotfiles
 ```bash
 cp /home/luke/Documents/dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
 ```
-## Install i3
-At this point i3 should've been installed. You just need to boot into it.
+## Install i3 
+At this point i3 should've been installed. You just need to boot into it. 
 Note that the default mod key is the linux modifer, but on some keyboards it makes more sense for alt to be the key
 https://faq.i3wm.org/question/2569/set-mod-key-only-as-left-mod-key.1.html
 
@@ -113,5 +109,24 @@ cp -r dotfiles/nvim ~/.config/nvim
 
 Run neovim again and let Mason do it's thing. Once that has been done you can enable copilot with
 `:Copilot auth`
+
+## Installing Rust
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+Once complete let's add it to our shell
+
+```bash
+# ~/.config/fish/config.fish
+source "$HOME/.cargo/env.fish"  # For fish
+```
+
+## Taskwarrior terminal interface
+
+```
+git clone https://github.com/kdheepak/taskwarrior-tui.git cd taskwarrior-tui cargo build --release
+```
+
 
 ## Finished 🎊
