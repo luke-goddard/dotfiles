@@ -78,8 +78,9 @@ export KEYBOARD_CONF_DIR=/home/luke/Documents/programming/dotfiles/keyboard/thin
 Then make sure the script is executable and create a cron job with. `crontab -e`
 
 ```cron
-@reboot ~/cront-startup.sh
+@reboot /home/luke/cron-startup.sh
 ```
+I don't think that cron has access to $HOME, so use a full path
 # Optional: Configure Fish
 ```
 ## Configuring Shell: Oh My Fish
@@ -124,8 +125,14 @@ source "$HOME/.cargo/env.fish"  # For fish
 
 ## Taskwarrior terminal interface
 
-```
-git clone https://github.com/kdheepak/taskwarrior-tui.git cd taskwarrior-tui cargo build --release
+```bash
+# Build it
+git clone https://github.com/kdheepak/taskwarrior-tui.git 
+cd taskwarrior-tui 
+cargo build --release
+
+# Install it
+cargo install --path .
 ```
 
 
