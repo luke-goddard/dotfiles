@@ -1,0 +1,4 @@
+
+```
+cp .tmux.conf $HOME
+```

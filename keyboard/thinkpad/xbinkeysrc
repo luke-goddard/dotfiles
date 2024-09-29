@@ -1,0 +1,13 @@
+
+"xdotool key Escape"
+  b:11
+
+"xdotool key BackSpace"
+  b:12
+
+"xdotool key Return"
+  b:13
+
+
+
+
