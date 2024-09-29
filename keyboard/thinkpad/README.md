@@ -9,3 +9,7 @@ xbindkeys
 xmodmap xmodmap-thinkpad
 ```
 
+## Startup
+
+Note: The correct place to put this is in 
+`~/.xinitrc`
