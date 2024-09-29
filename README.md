@@ -1,8 +1,8 @@
-## Fresh Linux install 
+## Fresh Linux install
 
 This is just the bootstrap installation and default configuration for most machines. The tutorial was written on the tailend of 2024 for Ubuntu Desktop - Thinkpad.
 
-## Install common packages 
+## Install common packages
 I want to tryout fish as a shell as it's got a good vim mode unlike zsh
 ```
 sudo apt-get update
@@ -30,7 +30,7 @@ Don't forget to add it your GitHub account
 ssh-keygen -t ed25519 -C "l-goddard@protonmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
-cat id_ed25519.pub | xclip -sel clip 
+cat id_ed25519.pub | xclip -sel clip
 ```
 
 ## Configure Git
@@ -40,7 +40,7 @@ git config --global user.email "l-goddard@protonmail.com"
 ```
 ## Download Dotfiles
 https://github.com/luke-goddard/dotfiles
-```bash 
+```bash
 cd $HOME/Documents
 mkdir programing
 cd programing
@@ -51,8 +51,8 @@ cd dotfiles
 ```bash
 cp /home/luke/Documents/dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
 ```
-## Install i3 
-At this point i3 should've been installed. You just need to boot into it. 
+## Install i3
+At this point i3 should've been installed. You just need to boot into it.
 Note that the default mod key is the linux modifer, but on some keyboards it makes more sense for alt to be the key
 https://faq.i3wm.org/question/2569/set-mod-key-only-as-left-mod-key.1.html
 
@@ -82,9 +82,8 @@ Then make sure the script is executable and create a cron job with. `crontab -e`
 ```
 I don't think that cron has access to $HOME, so use a full path
 # Optional: Configure Fish
-```
-## Configuring Shell: Oh My Fish
 Don't forget to set the mode to vim and check the install path
+
 ```bash
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
@@ -127,13 +126,12 @@ source "$HOME/.cargo/env.fish"  # For fish
 
 ```bash
 # Build it
-git clone https://github.com/kdheepak/taskwarrior-tui.git 
-cd taskwarrior-tui 
+git clone https://github.com/kdheepak/taskwarrior-tui.git
+cd taskwarrior-tui
 cargo build --release
 
 # Install it
 cargo install --path .
 ```
-
 
 ## Finished 🎊
