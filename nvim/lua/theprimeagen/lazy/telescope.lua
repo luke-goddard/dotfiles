@@ -3,12 +3,31 @@ return {
 
   tag = "0.1.5",
 
-  -- dependencies = {
-  --     "nvim-lua/plenary.nvim"
-  -- },
+  dependencies = {
+    "nvim-lua/plenary.nvim"
+  },
 
   config = function()
-    require('telescope').setup({})
+    require('telescope').setup({
+      defaults = {
+        layout_strategy = "flex",
+        layout_config = {
+          height = 0.8,
+          width = 0.8,
+          horizontal = {
+            preview_cutoff = 120,
+            preview_width = 0.6,
+          },
+          vertical = {
+            preview_cutoff = 40,
+          },
+          flex = {
+            flip_columns = 150,
+          },
+        },
+        -- Other options like file_ignore_patterns, mappings, etc.
+      },
+    })
 
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -27,21 +46,5 @@ return {
     vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
     vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp_references<cr>')
-
-    builtin.telescope.defaults.layout_strategy = "flex"
-    builtin.telescope.defaults.layout_config = {
-      height = 0.8,
-      width = 0.8,
-      horizontal = {
-        preview_cutoff = 120,
-        preview_width = 0.6,
-      },
-      vertical = {
-        preview_cutoff = 40,
-      },
-      flex = {
-        flip_columns = 150,
-      },
-    }
   end
 }
