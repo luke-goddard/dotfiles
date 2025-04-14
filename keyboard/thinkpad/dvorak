@@ -1,0 +1,17 @@
+keycode  10 = plus 1 plus 1
+keycode  11 = bracketleft 2 bracketleft 2
+keycode  12 = braceleft 3 braceleft 3
+keycode  13 = parenleft 4 parenleft 4
+keycode  14 = ampersand 5 ampersand 5
+keycode  15 = equal 6 equal 6 dead_circumflex dead_circumflex dead_circumflex
+keycode  16 = parenright 7 parenright 7
+keycode  17 = braceright 8 braceright 8
+keycode  18 = bracketright 9 bracketright 9 dead_grave dead_breve dead_grave
+keycode  19 = asterisk 0 asterisk 0
+remove Lock = Caps_Lock
+remove Control = Control_L
+keycode 37 = Caps_Lock
+keycode 66 = Control_L
+keycode 64 = Super_L
+add Lock = Caps_Lock
+add Control = Control_L
