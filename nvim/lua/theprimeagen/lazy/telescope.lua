@@ -46,5 +46,6 @@ return {
     vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
     vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp_references<cr>')
+
   end
 }
