@@ -34,3 +34,4 @@ vim.opt.colorcolumn = "80"
 -- Currently Needed for obsidian.nvim
 -- https://github.com/epwalsh/obsidian.nvim/issues/286
 vim.opt.conceallevel = 2
+vim.api.nvim_set_option("clipboard","unnamed")
