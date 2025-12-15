@@ -7,6 +7,7 @@
 (package! org-roam-ui)
 (package! org-ref)
 (package! consult-org-roam)
+(package! org-ql)
 (unpin! org-roam company-org-roam)
 
 

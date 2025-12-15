@@ -26,7 +26,6 @@
 ;;
 (setq doom-font (font-spec :size 12 ))
 
-
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
@@ -46,6 +45,11 @@
 (setq org-directory "~/Documents/org/")
 (setq org-roam-directory "~/Documents/org/org-roam")
 (setq org-display-remote-inline-images t)
+
+(setq org-agenda-files '("~/Documents/org/agenda/"))
+(setq org-agenda-span 5)
+(setq org-agenda-start-on-weekday 1)
+
 
 (use-package! consult-org-roam
   :after org-roam
@@ -136,3 +140,30 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(after! org
+  ;; Publish project
+  (setq org-publish-project-alist
+        '(("evaliscan-docs"
+           :base-directory "~/Documents/programming/evaliscan/doc/org/"
+           :base-extension "org"
+           :publishing-directory "~/Documents/programming/evaliscan/doc/public_html/"
+           :recursive t
+           :publishing-function org-html-publish-to-html
+           :with-author nil
+           :with-creator nil
+           :section-numbers nil
+           :time-stamp-file nil
+           :with-toc t)))
+
+  ;; Auto-publish function
+  (defun my/org-publish-on-save ()
+    "Auto-publish the evaliscan-docs project on save."
+    (when (and buffer-file-name
+               (string-prefix-p
+                (expand-file-name "~/Documents/programming/evaliscan/doc/org/")
+                (buffer-file-name)))
+      (org-publish-project "evaliscan-docs" t)))
+
+  ;; Hook into after-save
+  (add-hook 'after-save-hook #'my/org-publish-on-save))
+
